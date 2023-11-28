@@ -25,15 +25,15 @@ class MainActivity : AppCompatActivity() {
         button3 = findViewById(R.id.button3)
         val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         if (mBluetoothAdapter == null) {
-            out.append("device not supported")
+            out?.append("device not supported")
         }
-        button1.setOnClickListener {
+        button1?.setOnClickListener {
             if (!mBluetoothAdapter!!.isEnabled) {
                 val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
             }
         }
-        button2.setOnClickListener {
+        button2?.setOnClickListener {
             if (!mBluetoothAdapter!!.isDiscovering) {
                 //out.append("MAKING YOUR DEVICE DISCOVERABLE");
                 Toast.makeText(
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(enableBtIntent, REQUEST_DISCOVERABLE_BT)
             }
         }
-        button3.setOnClickListener {
+        button3?.setOnClickListener {
             mBluetoothAdapter!!.disable()
             //out.append("TURN_OFF BLUETOOTH");
             Toast.makeText(applicationContext, "TURNING_OFF BLUETOOTH", Toast.LENGTH_LONG)
