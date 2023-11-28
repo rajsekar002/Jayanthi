@@ -10,14 +10,19 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
+    var out:TextView?=null
+    var button1:Button?=null
+    var button2:Button?=null
+    var button3:Button?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val out = findViewById<View>(R.id.out) as TextView
-        val button1 = findViewById<View>(R.id.button1) as Button
-        val button2 = findViewById<View>(R.id.button2) as Button
-        val button3 = findViewById<View>(R.id.button3) as Button
+        out = findViewById(R.id.out)
+        button1 = findViewById(R.id.button1)
+        button2 = findViewById(R.id.button2)
+        button3 = findViewById(R.id.button3)
         val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         if (mBluetoothAdapter == null) {
             out.append("device not supported")
